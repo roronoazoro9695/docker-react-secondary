@@ -5,17 +5,17 @@ services:
 before_install:
   - docker build -t roronoazoro9695/docker-react-secondary -f Dockerfile.dev .
 
-scripts:
+script:
   - docker run -e CI=true roronoazoro9695/docker-react-secondary npm run test
 
-deploy:
-  provider: elasticbeanstalk
-  region: "eu-north-1"
-  app: "docker-react"
-  env: "Docker-react-env-2"
-  bucket_name: "elasticbeanstalk-eu-north-1-839117473964"
-  bucket_path: "docker-react-secondary"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: "$AWS_SECRET_KEY"
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "eu-north-1"
+#   app: "docker-react"
+#   env: "Docker-react-env-2"
+#   bucket_name: "elasticbeanstalk-eu-north-1-839117473964"
+#   bucket_path: "docker-react-secondary"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: "$AWS_SECRET_KEY"
